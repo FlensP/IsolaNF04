@@ -81,12 +81,21 @@ def jeu():
                         plateau[posx][posy] = str(joueur)
                         deplacement_fait = True
 
-        # TODO : destruction
+        # destruction
+        destruction_faite = False
+        while not destruction_faite:
+            posx = int(input("Quelle case voulez-vous détruire en ligne ?"))
+            posy = int(input("Quelle case voulez-vous détruire en colonne"))
+            if 0 <= posx < nl and 0 <= posy < nc:
+                if plateau[posx][posy] == '0':
+                    plateau[posx][posy] = 'X'
+
+                    destruction_faite = True
 
         # TODO : affichage
 
         joueur = 2 / joueur  # permet de passer au joueur suivant sans utiliser un if
-
+    print("Le gagnant est le joueur :", 2 / joueur)
 
 
 if __name__ == '__main__':
