@@ -44,6 +44,8 @@ def check_possible(joueur):
 def jeu():
     # Phase d'initialisation
 
+    global nl, nc
+
     while nl <= 1:  # le nombre de lignes doit être supérieur à 1
         nl = int(input("Rentrez le nombre de lignes du plateau"))
     while nc < nl or nc <= 1:  # le nombre de colonnes doit être supérieur à 1 et supérieur ou égal au nombre de ligne
@@ -66,13 +68,25 @@ def jeu():
     while check_possible(joueur):
         i = 0
 
-        # TODO : déplacement
+        # déplacement
+        deplacement_fait = False
+        while not deplacement_fait:
+            posx = int(input("Où voulez-vous placer votre pion en ligne ?"))
+            posy = int(input("Où voulez-vous plcer votre pion en colonne ?"))
+            x, y = find_player(joueur)
+            if abs(posy - y) <= 1 and abs(posx - x) <= 1:
+                if 0 <= posx < nl and 0 <= posy < nc:
+                    if plateau[posx][posy] == '0':
+                        plateau[x][y] = '0'
+                        plateau[posx][posy] = str(joueur)
+                        deplacement_fait = True
 
         # TODO : destruction
 
         # TODO : affichage
 
         joueur = 2 / joueur  # permet de passer au joueur suivant sans utiliser un if
+
 
 
 if __name__ == '__main__':
