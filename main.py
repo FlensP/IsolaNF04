@@ -15,28 +15,28 @@ def find_player(joueur):
 def check_possible(joueur):
     x, y = find_player(joueur)
     if y + 1 < nc:
-        if plateau[x][y + 1] == 'O':
+        if plateau[x][y + 1] == '0':
             return True
     if y - 1 >= 0:
-        if plateau[x][y - 1] == 'O':
+        if plateau[x][y - 1] == '0':
             return True
     if x + 1 < nl:
-        if plateau[x + 1][y] == 'O':
+        if plateau[x + 1][y] == '0':
             return True
     if x - 1 >= 0:
-        if plateau[x - 1][y] == 'O':
+        if plateau[x - 1][y] == '0':
             return True
     if x + 1 < nl and y + 1 < nc:
-        if plateau[x + 1][y + 1] == 'O':
+        if plateau[x + 1][y + 1] == '0':
             return True
     if x + 1 < nl and y - 1 >= 0:
-        if plateau[x + 1][y - 1] == 'O':
+        if plateau[x + 1][y - 1] == '0':
             return True
     if x - 1 >= 0 and y - 1 >= 0:
-        if plateau[x - 1][y - 1] == 'O':
+        if plateau[x - 1][y - 1] == '0':
             return True
     if x - 1 >= 0 and y + 1 < nc:
-        if plateau[x - 1][y + 1] == 'O':
+        if plateau[x - 1][y + 1] == '0':
             return True
     return False
 
